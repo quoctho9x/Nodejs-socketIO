@@ -1,4 +1,4 @@
-var socket = io('http://localhost:8888/');
+var socket = io('https://quoctho.herokuapp.com/');
 
 socket.on('server-gui-ds',function (data) {
     $('#ds').html('');

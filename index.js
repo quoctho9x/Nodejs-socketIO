@@ -7,7 +7,7 @@ app.set('views','./views');
 
 var server = require('http').Server(app);//chua biet cong dung cua cai nay
 var io  = require('socket.io')(server);
-server.listen(8888);
+server.listen(process.env.PORT || 8888);
 
 var mang=[];
 
