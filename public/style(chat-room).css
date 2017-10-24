@@ -1,0 +1,57 @@
+#wrapper{
+    width: 600px;
+    margin: auto;
+}
+#txt-username{
+    background-color: transparent;
+    border: 1px solid #333;
+}
+#left{
+    width: 30%;
+    float: left;
+    background-color: aqua;
+}
+#right{
+    width: 70%;
+    float: right;
+    background-color: transparent;
+}
+
+#box-content{
+    border:1px solid #333;
+    border-top: none;
+    padding: 5px;
+}
+#box-title{
+    text-align: center;
+    border: 1px solid #333;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    padding: 5px;
+}
+
+.user-online{
+    text-align: center;
+}
+
+.say-hi{
+    text-align: right;
+    background-color: chartreuse;
+}
+
+.list-msg{
+    height: 250px;
+    background-color: #fcead4;
+    position: relative;
+}
+.status-typing{
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    color:#555;
+}
+.wrapper-send{
+    padding-top: 5px;
+}

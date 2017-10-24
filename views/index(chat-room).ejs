@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>nodeJS</title>
+    <link rel="stylesheet" href="style(chat-room).css">
+</head>
+<body>
+<div id="wrapper">
+    <input type="text" id="txt-tenroom" placeholder="ten room">
+    <input type="button" id="btn-room"  value="tao room">
+    <div id="chatForm">
+        <div id="left">
+            <div id="box-title ">
+               <div id="list-room">
+
+               </div>
+            </div>
+            <div id="box-content">
+            </div>
+        </div>
+        <div id="right">
+            <div class="say-hi roomHienTai">
+                room hien tai
+            </div>
+            <div class="list-msg">
+
+                <div class="status-typing"></div>
+            </div>
+            <div class="wrapper-send">
+                <input type="text" id="txt-Message">
+                <input type="button" value="send" id="txt-Send-Message">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<!--import script-->
+<script src="jquery.min.js"></script>
+<script src="socket.io/socket.io.js"></script>
+<script src="main(chat-room).js"></script>
+
+</html>
