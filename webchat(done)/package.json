@@ -9,13 +9,9 @@
     "express": "^4.16.2",
     "socket.io": "^2.0.4"
   },
-  "devDependencies": {
-    "jquery": "^3.2.1",
-    "simple-peer": "^8.1.1"
-  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC"
