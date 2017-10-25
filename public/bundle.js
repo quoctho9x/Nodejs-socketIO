@@ -136,7 +136,6 @@ peer.on('call',call =>{
 });
 
 //Click to call
-
 $('#list-user-online').on('click', 'li',function(){
     const id = $(this).attr('id');
     openStream()
