@@ -1,18 +1,81 @@
 import playVideo from './play';
-import Peer from 'simple-peer';
-import $ from 'jQuery';
-import openStream from './openStream';
-openStream(function (stream) {
-    playVideo(stream,'localstream');
-    const p  = new Peer({initiator:location.hash === "#1",stream: stream,trickle:false});
-    p.on('signal',token => {
-        $('#txtMySingal').val(JSON.stringify(token));
-    });
+const socket = io('https://quoctho.herokuapp.com');
+const peer = new Peer({key: '8hj8i7m8xoclq5mi'});
 
-    p.on('stream', friendStream => playVideo(friendStream,'friendstream'));
+$('#chat').hide();
 
-    $('#btnConnect').on('click',()=>{
-        const friendSignal = JSON.parse($('#txtFriendSignal').val());
-        p.signal(friendSignal);
+socket.on('DANH-SACH-ONLINE',arrayUserInfo =>{
+    $('#chat').show();
+    $('#dangky').hide();
+    $("#list-user-online").html('');
+    arrayUserInfo.forEach(user => {
+        const {ten,peerId} = user;
+        $("#list-user-online").append(`<li id="${peerId}"> ${ten}</li>`)
     });
+});
+socket.on('DANG-KY-THAT-BAI',()=>{
+    alert('user name da ton tai, xin chon user khac');
+});
+
+
+function openStream() {
+    var config = {audio: true, video: true}
+    return navigator.mediaDevices.getUserMedia(config)
+}
+
+
+peer.on('open',id=>{
+    $('#my-peer').append(id);
+    $('#btn-signUp').on('click',()=>{
+        const username = $('#txtUsername').val();
+        socket.emit('NGUOI-DUNG-DANG-KY',{ten:username,peerId:id});
+    });
+});
+
+//nguoi goi di
+$("#btnCall").on('click',()=>{
+    const id = $('#remoteId').val();
+    openStream()
+        .then(
+            stream => {
+                playVideo('localstream',stream);
+                const call = peer.call(id,stream);
+                call.on('stream',remoteStream => playVideo('friendstream',remoteStream));
+            }
+        )
+        .catch(
+            err => console.log(err)
+        )
+});
+//nguoi nhan
+peer.on('call',call =>{
+    openStream()
+        .then(
+            stream => {
+                call.answer(stream);
+                playVideo('localstream',stream);
+                call.on('stream',remoteStream => playVideo('friendstream',remoteStream));
+            }
+        )
+        .catch(
+            err => console.log(err)
+        )
+
+});
+
+//Click to call
+
+$('#list-user-online').on('click', 'li',function(){
+    const id = $(this).attr('id');
+    openStream()
+        .then(
+            stream => {
+                playVideo('localstream',stream);
+                const call = peer.call(id,stream);
+                call.on('stream',remoteStream => playVideo('friendstream',remoteStream));
+            }
+        )
+        .catch(
+            err => console.log(err)
+        )
 });

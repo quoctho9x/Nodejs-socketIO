@@ -9,27 +9,32 @@
     <!-- <link rel="stylesheet" href="https://quoctho.herokuapp.com/style.css">-->
 </head>
 <body>
-<h1>my</h1>
-<video src="" id="localstream" width="300" controls></video>
-<br>
+<div id="chat">
+    <h3>User Online</h3>
+    <ul id="list-user-online"></ul>
+    <h3 id="my-peer">your id:</h3>
+    <video src="" id="localstream" width="300" controls></video>
+    <br>
 
-<h1>friend</h1>
-<video src="" id="friendstream" width="300" controls></video>
-<br>
-<p>My TOKEN</p>
-<textarea id="txtMySingal" cols="70" rows="10"></textarea>
-<br>
-<input type="text" placeholder="your friend signal" id="txtFriendSignal">
-<br>
-<button id="btnConnect">Connect</button>
+    <h3 id="friend-peer"></h3>
+    <video src="" id="friendstream" width="300" controls></video>
+    <br>
+    <br>
+    <input type="text" id="remoteId" placeholder="Remote ID">
+    <button id="btnCall">call</button>
+    <br>
+</div>
+<div id="dangky">
+    <input type="text" id="txtUsername" placeholder="enter your name">
+    <button id="btn-signUp"> dangky </button>
+</div>
 
 </body>
 <!--import script-->
-<script src="bundle.js"></script>
-<!--
 <script src="https://quoctho.herokuapp.com/jquery.min.js"></script>
-<script src="https://quoctho.herokuapp.com/socket.io/socket.io.js"></script>
-<script src="https://quoctho.herokuapp.com/main.js"></script>
--->
+<script src="https://quoctho.herokuapp.com/peer.js"></script>
+<script src="https://quoctho.herokuapp.com/socket.io.js"></script>
+<script src="https://quoctho.herokuapp.com/bundle.js"></script>
+
 
 </html>
