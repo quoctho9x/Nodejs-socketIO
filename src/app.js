@@ -1,6 +1,6 @@
 import playVideo from './play';
 const socket = io('https://quoctho.herokuapp.com');
-const peer = new Peer({key: '8hj8i7m8xoclq5mi'});
+const peer = new Peer({key: 'peerjs',host:'https://quoctho-peer.herokuapp.com',port:443,secure:true});
 
 $('#chat').hide();
 
